@@ -455,6 +455,7 @@ GameObject:
   - component: {fileID: 330585545}
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
+  - component: {fileID: 330585548}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -580,6 +581,20 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &330585548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb8609b359d95e64cbbb12d54d58ebb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1334130211}
+  transitionSpeed: 3
 --- !u!1 &333237512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1528,8 +1543,8 @@ GameObject:
   - component: {fileID: 1118045059}
   - component: {fileID: 1118045063}
   m_Layer: 0
-  m_Name: Cube (5)
-  m_TagString: Untagged
+  m_Name: Trap
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1651,6 +1666,7 @@ GameObject:
   - component: {fileID: 1334130213}
   - component: {fileID: 1334130214}
   - component: {fileID: 1334130215}
+  - component: {fileID: 1334130216}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -1835,6 +1851,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f93922ac593e4970bc8ba49d872437c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1334130216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334130207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a04eb614515987d45b00cb4fe4d46c43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 5
 --- !u!1 &1653363537
 GameObject:
   m_ObjectHideFlags: 0
