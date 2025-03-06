@@ -1,14 +1,31 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 
 public class Health : MonoBehaviour
 {
     public int points = 5;
+    public Vector3 respawnPosition;
+    public TMP_Text healthText;
+
+
+    private void Start()
+    {
+        respawnPosition = transform.position;
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Trap"))
         {
-            Damage(1);
+            Damage(1); 
+        }
+
+        if (other.CompareTag("Checkpoint"))
+        {
+            respawnPosition = other.transform.position;
+            respawnPosition.y = transform.position.y;
         }
 
     }
@@ -16,10 +33,18 @@ public class Health : MonoBehaviour
     private void Damage(int value)
     {
         points = points - value;
+        healthText.text = $"<b>Health</b> {points}";
+        // HW
+        //Add score in player collection script
+
+
+        transform.position = respawnPosition;
+
+        // points = 5;
+
+
         if (points < 1)
         {
-            // HW
-            // DO NOT DESTROY MOVE THE P{LAYER TO THE START AND RESET POINTS BACK TO 5
 
             Destroy(gameObject);
         }
