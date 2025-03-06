@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
     
     // xyz coordinates
     public Vector3 direction;
+    public Rigidbody playerRb;
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,7 +27,9 @@ public class PlayerMovement : MonoBehaviour
     {
         // the dot is there to access
         // a functionality of "transform"
-        transform.Translate(direction * Time.deltaTime * speed, Space.World);       
+        //transform.Translate(direction * Time.deltaTime * speed, Space.World);
+
+        playerRb.linearVelocity = direction * speed;
     }
 
     private void OnMove(InputValue value)
