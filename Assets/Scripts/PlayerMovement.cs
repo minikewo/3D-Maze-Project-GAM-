@@ -5,10 +5,11 @@ public class PlayerMovement : MonoBehaviour
 {
     // we put information at the start
     // of a class
-    public int health = 100;
+    
     public float speed = 4.5f;
-    public string hero = "Redd";
-    public bool isAlive = true;
+    public float jumpForce = 5; 
+    public string hero = "Peepee";
+    
     
     // xyz coordinates
     public Vector3 direction;
@@ -23,13 +24,16 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // the dot is there to access
         // a functionality of "transform"
         //transform.Translate(direction * Time.deltaTime * speed, Space.World);
 
-        playerRb.linearVelocity = direction * speed;
+        Vector3 velocity = direction * speed;
+        velocity.y = playerRb.linearVelocity.y;
+
+        playerRb.linearVelocity = velocity;
     }
 
     private void OnMove(InputValue value)
@@ -44,5 +48,17 @@ public class PlayerMovement : MonoBehaviour
         );
         
         transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
+    }
+
+    private void OnJump(InputValue value)
+    {
+        // Physics.Raycast willcast a line that can hit opther colliders
+        //if it finds a collider, it returns true, if it doesnt it returns false
+        bool isGrounded = Physics.Raycast(transform.position, Vector3.down, maxDistance: 0.6f);
+        if (isGrounded)
+        {
+            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
+        
     }
 }
